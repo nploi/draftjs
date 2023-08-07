@@ -145,6 +145,11 @@ func SetDefaultDecorators(config *Config) {
 	descriptor.Type = "BLOCK_AUDIO"
 	descriptor.Decorator = new(AudioDecorator)
 	config.SetEntityDecorator(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "BLOCK_MATHJAX"
+	descriptor.Decorator = new(MathJaxDecorator)
+	config.SetEntityDecorator(descriptor)
 }
 
 // NewDefaultConfig Makes new config and fills it with

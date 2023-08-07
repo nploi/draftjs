@@ -56,3 +56,15 @@ func (decorator *AudioDecorator) RenderBeginning(data map[string]string) string 
 func (decorator *AudioDecorator) RenderEnding(data map[string]string) string {
 	return "</audio>"
 }
+
+// mathjax	https://www.mathjax.org/ show as svg
+type MathJaxDecorator struct {
+}
+
+func (decorator *MathJaxDecorator) RenderBeginning(data map[string]string) string {
+	return fmt.Sprintf("<div>%s</div>", data["data"])
+}
+
+func (decorator *MathJaxDecorator) RenderEnding(data map[string]string) string {
+	return ""
+}
