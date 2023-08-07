@@ -11,7 +11,7 @@ import (
 func main() {
 
 	// get your contentState JSON-string
-	draftState := tests.ExampleDraftStateSource2
+	draftState := tests.ExampleDraftStateSource
 
 	// make auxiliary variable
 	contentState := draftjs.ContentState{}
