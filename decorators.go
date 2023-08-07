@@ -61,7 +61,7 @@ type MathJaxDecorator struct {
 }
 
 func (decorator *MathJaxDecorator) RenderBeginning(data map[string]string) string {
-	return fmt.Sprintf("\\(%s\\)", data["data"])
+	return fmt.Sprintf("\\[%s\\]", data["data"])
 }
 
 func (decorator *MathJaxDecorator) RenderEnding(data map[string]string) string {
@@ -72,7 +72,7 @@ type InlineMathJaxDecorator struct {
 }
 
 func (decorator *InlineMathJaxDecorator) RenderBeginning(data map[string]string) string {
-	return fmt.Sprintf("\\[%s\\]", data["data"])
+	return fmt.Sprintf("\\(%s\\)", data["data"])
 }
 
 func (decorator *InlineMathJaxDecorator) RenderEnding(data map[string]string) string {
