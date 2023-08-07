@@ -135,6 +135,16 @@ func SetDefaultDecorators(config *Config) {
 	descriptor.Type = "IMAGE"
 	descriptor.Decorator = new(ImageDecorator)
 	config.SetEntityDecorator(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "BLOCK_IMAGE"
+	descriptor.Decorator = new(ImageDecoratorV2)
+	config.SetEntityDecorator(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "BLOCK_AUDIO"
+	descriptor.Decorator = new(AudioDecorator)
+	config.SetEntityDecorator(descriptor)
 }
 
 // NewDefaultConfig Makes new config and fills it with
