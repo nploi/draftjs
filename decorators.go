@@ -50,21 +50,31 @@ type AudioDecorator struct {
 }
 
 func (decorator *AudioDecorator) RenderBeginning(data map[string]string) string {
-	return fmt.Sprintf("<audio controls><source src=\"%s\" type=\"audio/mpeg\"></audio>", data["data"])
+	return fmt.Sprintf("<audio controls><source src=\"%s\" type=\"audio/mpeg\">", data["data"])
 }
 
 func (decorator *AudioDecorator) RenderEnding(data map[string]string) string {
 	return "</audio>"
 }
 
-// mathjax	https://www.mathjax.org/ show as svg
 type MathJaxDecorator struct {
 }
 
 func (decorator *MathJaxDecorator) RenderBeginning(data map[string]string) string {
-	return fmt.Sprintf("<div>%s</div>", data["data"])
+	return fmt.Sprintf("\\(%s\\)", data["data"])
 }
 
 func (decorator *MathJaxDecorator) RenderEnding(data map[string]string) string {
+	return ""
+}
+
+type InlineMathJaxDecorator struct {
+}
+
+func (decorator *InlineMathJaxDecorator) RenderBeginning(data map[string]string) string {
+	return fmt.Sprintf("\\[%s\\]", data["data"])
+}
+
+func (decorator *InlineMathJaxDecorator) RenderEnding(data map[string]string) string {
 	return ""
 }

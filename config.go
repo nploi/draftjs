@@ -71,6 +71,26 @@ func SetDefaultBlocks(config *Config) {
 	config.SetBlockMapElement(descriptor)
 
 	descriptor = new(Descriptor)
+	descriptor.Type = "header-two"
+	descriptor.Element = "h2"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "header-three"
+	descriptor.Element = "h3"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "header-four"
+	descriptor.Element = "h4"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "header-five"
+	descriptor.Element = "h5"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
 	descriptor.Type = "unordered-list-item"
 	descriptor.Element = "li"
 	descriptor.Wrapper = "ul"
@@ -85,6 +105,11 @@ func SetDefaultBlocks(config *Config) {
 	descriptor = new(Descriptor)
 	descriptor.Type = "unstyled"
 	descriptor.Element = "p"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "atomic"
+	descriptor.Element = "br"
 	config.SetBlockMapElement(descriptor)
 }
 
@@ -149,6 +174,11 @@ func SetDefaultDecorators(config *Config) {
 	descriptor = new(Descriptor)
 	descriptor.Type = "BLOCK_MATHJAX"
 	descriptor.Decorator = new(MathJaxDecorator)
+	config.SetEntityDecorator(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "INLINE_MATHJAX"
+	descriptor.Decorator = new(InlineMathJaxDecorator)
 	config.SetEntityDecorator(descriptor)
 }
 
