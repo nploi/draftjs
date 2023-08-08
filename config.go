@@ -104,7 +104,7 @@ func SetDefaultBlocks(config *Config) {
 
 	descriptor = new(Descriptor)
 	descriptor.Type = "unstyled"
-	descriptor.Element = "p"
+	descriptor.Element = "div"
 	config.SetBlockMapElement(descriptor)
 
 	descriptor = new(Descriptor)
