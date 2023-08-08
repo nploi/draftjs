@@ -108,8 +108,18 @@ func SetDefaultBlocks(config *Config) {
 	config.SetBlockMapElement(descriptor)
 
 	descriptor = new(Descriptor)
+	descriptor.Type = "code-block"
+	descriptor.Element = "pre"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
+	descriptor.Type = "blockquote"
+	descriptor.Element = "blockquote"
+	config.SetBlockMapElement(descriptor)
+
+	descriptor = new(Descriptor)
 	descriptor.Type = "atomic"
-	descriptor.Element = "br"
+	descriptor.Element = "figure"
 	config.SetBlockMapElement(descriptor)
 }
 
