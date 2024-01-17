@@ -47,8 +47,9 @@ func Render(contentState *ContentState, config *Config) string {
 	config.Precache()
 
 	RenderWithBuf(contentState, config, &buf)
-
-	return buf.String()
+	var bufString = buf.String()
+	// bufString = strings.Replace(bufString, "<div></div>", "<br>", -1)
+	return bufString
 }
 
 // RenderWithBuf renders Draft.js content state to buffer with config
