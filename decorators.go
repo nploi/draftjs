@@ -1,6 +1,9 @@
 package draftjs
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type Decorator interface {
 	RenderBeginning(data map[string]string) string
@@ -22,10 +25,15 @@ type ImageDecorator struct {
 }
 
 func (decorator *ImageDecorator) RenderBeginning(data map[string]string) string {
-	if alt, ok := data["alt"]; ok {
-		return fmt.Sprintf("<img src=\"%s\" alt=\"%s\">", data["data"], alt)
+	maxHeight := os.Getenv("IMAGE_MAX_HEIGHT")
+	maxHeightStr := ""
+	if maxHeight != "" {
+		maxHeightStr = fmt.Sprintf(" style=\"max-height:%spx;\"", maxHeight)
 	}
-	return fmt.Sprintf("<img src=\"%s\">", data["data"])
+	if alt, ok := data["alt"]; ok {
+		return fmt.Sprintf("<img%s src=\"%s\" alt=\"%s\">", data["data"], maxHeightStr, alt)
+	}
+	return fmt.Sprintf("<img%s src=\"%s\">", maxHeightStr, data["data"])
 }
 
 func (decorator *ImageDecorator) RenderEnding(data map[string]string) string {
